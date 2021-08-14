@@ -31,10 +31,27 @@ public class ProductInventoryDbUpdateRequest implements Request {
 
     @Override
     public void process() {
+        System.out.println("------------日志---------:商户句更新请求开始执行， productId=" + productInventory.getProductId());
         //删除redis中的缓存
         productInventoryService.removeProductInventoryCache(productInventory);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //修改数据库中的库存
         productInventoryService.updateProductInventory(productInventory);
+
+    }
+
+    @Override
+    public Integer getProductId() {
+        return productInventory.getProductId();
+    }
+
+    @Override
+    public boolean isForceRefresh() {
+        return false;
     }
 
 }

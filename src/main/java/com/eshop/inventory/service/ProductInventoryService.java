@@ -11,7 +11,7 @@ import com.eshop.inventory.model.ProductInventory;
 public interface ProductInventoryService {
 
     /**
-     * 修改商户库存
+     * 更新商户库存
      *
      * @param productInventory 商户库存
      */
@@ -32,5 +32,18 @@ public interface ProductInventoryService {
      */
     ProductInventory findProductInventory(Integer productId);
 
-    void refreshProductInventoryCache();
+    /**
+     * 设置商户库存的缓存
+     *
+     * @param productInventory
+     */
+    void setProductInventoryCache(ProductInventory productInventory);
+
+    /**
+     * 获取商品库存中的缓存
+     *
+     * @param productId
+     * @return
+     */
+    ProductInventory getProductInventoryCache(Integer productId);
 }

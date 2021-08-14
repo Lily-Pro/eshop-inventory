@@ -9,4 +9,13 @@ package com.eshop.inventory.request;
 public interface Request {
 
     void process();
+
+    Integer getProductId();
+
+    /**
+     * 是否强制刷新读缓存
+     *
+     * @return
+     */
+    boolean isForceRefresh();
 }
